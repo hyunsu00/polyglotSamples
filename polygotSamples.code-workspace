@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"name": "C",
+			"path": "C"
+		},
+		{
+			"name": "C++",
+			"path": "C++"
+		},
+		{
+			"name": "CMake",
+			"path": "CMake"
+		},
+		{
+			"name": "HTML",
+			"path": "HTML"
+		},
+		{
+			"name": "Java",
+			"path": "Java"
+		},
+		{
+			"name": "Python",
+			"path": "Python"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "HTML"
+	}
+}
