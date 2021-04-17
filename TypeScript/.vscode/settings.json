@@ -1,0 +1,12 @@
+{
+	// 탐색기에서 소스 파일 .ts와 .tsx소스 파일 모두에서 생성 된 JavaScript 파일을 제외
+	// 같은 위치에 있으므로 현재 빌드 폴더가 out이여서 여기서는 필요없다.
+	"files.exclude": {
+		"**/*.js": {
+			"when": "$(basename).ts"
+		},
+		"**/**.js": {
+			"when": "$(basename).tsx"
+		}
+	}
+}

@@ -23,6 +23,12 @@
 		{
 			"name": "Python",
 			"path": "Python"
+		},
+		{
+			"path": "Node.js"
+		},
+		{
+			"path": "TypeScript"
 		}
 	],
 	"settings": {
