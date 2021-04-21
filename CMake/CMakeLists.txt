@@ -1,8 +1,10 @@
 # CMake 프로그램의 최소 버전
-cmake_minimum_required(VERSION 3.0.0)
+# cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 2.8)
 
 # 프로젝트 정보
-project(HelloWorld VERSION 0.1.0)
+# project(HelloWorld VERSION 0.1.0)
+project(HelloWorld)
 
 # CTest는 cmake로 구성한 빌드환경에 빌드 및 테스트를 수행하고 
 # 그 결과를 dashboard에 게재할 수 있도록 도와줍니다.

@@ -5,25 +5,59 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "g++ - 활성 파일 빌드 및 디버그",
+			// 디버그 드롭다운에 나타나는 디버그 런치 이름
+			"name": "(gdb) Launch",
+			// 실행구성에 사용할 디버거 유형(node, php, python..등)
 			"type": "cppdbg",
+			// 실행구성의 요청유형 현재는 'launch', 'attach` 입니다.
 			"request": "launch",
-			"program": "${fileDirname}/${fileBasenameNoExtension}",
-			"args": [],
+			//  디버거를 시작할 때 실행할 실행 파일 또는 파일
+			"program": "${command:cmake.launchTargetPath}",
+			//  디버깅 할 프로그램에 전달된 인수
+			"args": [
+				"7021"
+			],
+			// 프로그램이 시작되면 즉시 중단
 			"stopAtEntry": false,
+			// 의존성 및 기타 파일을 찾기위한 현재 작업 디렉토리
 			"cwd": "${workspaceFolder}",
-			"environment": [],
-			"externalConsole": false,
-			"MIMode": "gdb",
+			// 프로그램 환경에 추가 할 환경 변수
+			"environment": [
+				{
+					// add the directory where our target was built to the PATHs
+					// it gets resolved by CMake Tools:
+					"name": "PATH",
+					// cmake.getLaunchTargetDirectory : 대상 실행 파일 디렉토리의 전체 경로입니다. 디렉터리의 존재 여부는 확인되지 않습니다.
+					// https://github.com/microsoft/vscode-cmake-tools/blob/develop/docs/cmake-settings.md
+					"value": "$PATH:${command:cmake.getLaunchTargetDirectory}"
+				}
+			],
+			// 디버기를 시작할 때만 사용됩니다. 의 attach경우이 매개 변수는 디 버기의 동작을 변경하지 않습니다.
+			// Windows : true로 설정하면 외부 콘솔이 생성됩니다. false로 설정하면 VS Code의 통합 터미널을 사용합니다.
+			// Linux : true로 설정하면 외부 콘솔을 생성하도록 VS Code에 알립니다. false로 설정하면 VS Code의 통합 터미널을 사용합니다.
+			// macOS : true로 설정하면 lldb-mi. false로 설정하면 VS Code의 debugConsole에서 출력을 볼 수 있습니다. 의 제한으로 인해 lldb-mi통합 터미널 지원을 사용할 수 없습니다.
+			"externalConsole": true,
+			"linux": {
+				// VS Code가 연결할 디버거
+				"MIMode": "gdb",
+				// 디버거의 경로
+				"miDebuggerPath": "/usr/bin/gdb"
+			},
+			"osx": {
+				"MIMode": "lldb"
+			},
+			"windows": {
+				"MIMode": "gdb",
+				"miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe"
+			},
+			// GDB 또는 LLDB를 설정하기 위해 실행할 명령의 JSON 배열
 			"setupCommands": [
 				{
 					"description": "gdb에 자동 서식 지정 사용",
 					"text": "-enable-pretty-printing",
 					"ignoreFailures": true
 				}
-			],
-			"preLaunchTask": "C/C++: g++ 활성 파일 빌드",
-			"miDebuggerPath": "/usr/bin/gdb"
+			]
 		}
 	]
 }
