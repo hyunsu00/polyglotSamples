@@ -38,6 +38,9 @@ func addItem(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/items", getItems)
 	http.HandleFunc("/items/add", addItem)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, "Hello, World!")
+	})
 
 	fmt.Println("서버가 http://localhost:8080에서 시작되었습니다.")
 	if err := http.ListenAndServe(":8080", nil); err != nil {

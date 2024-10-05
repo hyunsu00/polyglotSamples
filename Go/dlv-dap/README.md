@@ -1,21 +1,23 @@
 
 ## Go 환경
 
-
 ```bash
 # 일반적인 설치 경로
-which go
+$ which go
 # Go 설치 경로 확인
-go env GOROOT
+$ go env GOROOT
 # Go 환경 변수 확인
-go env
+$ go env
 ```
 
+## Go 모듈 초기화
+`$ go mod init dlv-dap`
+
 ## Go 실행
-`go run main.go`
+`$ go run main.go`
 
 ## Go 빌드
-`go build -o hellowolrd`
+`$ go build -o hellowolrd`
 
 
 ## Go 디버깅
