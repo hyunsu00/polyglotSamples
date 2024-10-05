@@ -6,8 +6,7 @@
     "go.toolsEnvVars": {
         "GO111MODULE": "on" // 모듈을 사용하여 의존성을 관리
     },
-    "go.formatTool": "goimports", // goimports를 사용하여 코드를 자동으로 정리
+    "go.formatTool": "default", // default를 사용하여 코드를 자동으로 정리
     "go.lintTool": "golint", // golint를 사용하여 코드를 검사
-    "go.buildOnSave": "workspace", // 저장할 때마다 코드를 빌드
     "go.vetOnSave": "workspace" // 저장할 때마다 코드를 검사
 }
