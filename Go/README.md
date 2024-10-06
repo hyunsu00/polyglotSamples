@@ -29,6 +29,10 @@ $ go env
 ## Go 디버깅
 
 ```bash
+# 주의사항
+# go-dlv는 브레이크 포인트 설정시 심볼릭링크경로에는 붙지 않는다.
+# 따라서 실제 경로에서 프로젝트에서 열어야만 디버깅이 가능하다.
+
 go install github.com/go-delve/delve/cmd/dlv@latest
 which dlv
 ```
